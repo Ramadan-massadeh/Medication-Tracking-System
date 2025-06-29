@@ -2,7 +2,12 @@ public class Main {
     public static void main(String[] args) {
         MedicationTracking system = new MedicationTracking();
 
+        Patient patient = new Patient("John Doe", 40, "555-1234");
+        System.out.println(patient); // print original patient details
 
+        patient.setName("John Smith"); // rename
+        System.out.println(patient);   // print updated name
+    
         Doctor doc1 = new Doctor("Ahmad");
         Patient patient1 = new Patient("Ali");
         Medication med1 = new Medication("Panadol", 10);
