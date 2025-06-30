@@ -6,11 +6,11 @@ public class Patient extends Person {
     private List<String> prescriptions;
 
     // constructor
-    public Patient(String name, int age, String phoneNumber) {
-        super(name, age, phoneNumber);
-        this.medications = new ArrayList<>();
-        this.prescriptions = new ArrayList<>();
-    }
+  public Patient(String id, String name, int age, String phoneNumber) {
+    super(id, name, age, phoneNumber);
+    this.medications = new ArrayList<>();
+    this.prescriptions = new ArrayList<>();
+}
 
     // to add medications to patient profile
     public void addMedication(String medication) {

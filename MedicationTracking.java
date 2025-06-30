@@ -14,43 +14,59 @@ public class MedicationTracking {
         medications = new ArrayList<>();
         prescriptions = new ArrayList<>();
     }
+    public Doctor findDoctorByName(String name) {
+        for (Doctor d : doctors) {
+            if (d.getName().equalsIgnoreCase(name)) {
+                return d;
+            }
+        }
+        return null;
+    }
 
+    public Patient findPatientByName(String name) {
+        for (Patient p : patients) {
+            if (p.getName().equalsIgnoreCase(name)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public Medication findMedicationByName(String name) {
+        for (Medication m : medications) {
+            if (m.getName().equalsIgnoreCase(name)) {
+                return m;
+            }
+        }
+        return null;
+    }
 
     // •	Search for drugs, patients, and doctors by name and display relevant details for each
 
-    public void searchDoctorByName(String name) {
-        for (int i = 0; i < doctors.size(); i++) {
-            Doctor doc = doctors.get(i);
-            if (doc.getName().equals(name)) {
-                System.out.println("Doctor Name: " + doc.getName());
-                return;
-            }
-        }
-
-        System.out.println("Not found");
+public void searchDoctorByName(String name) {
+    Doctor doctor = findDoctorByName(name);
+    if (doctor != null) {
+        System.out.println(doctor.toString());
+    } else {
+        System.out.println("Doctor not found.");
     }
+}
 
-    public void searchPatientByName(String name) {
-    for (int i = 0; i < patients.size(); i++) {
-        Patient pat = patients.get(i);
-        if (pat.getName().equals(name)) {
-            System.out.println("Patient Name: " + pat.getName());
-            return;
-        }
+ public void searchPatientByName(String name) {
+    Patient patient = findPatientByName(name);
+    if (patient != null) {
+        System.out.println(patient.toString());
+    } else {
+        System.out.println("Patient not found.");
     }
-
-    System.out.println("Not found");
 }
 public void searchMedicationByName(String name) {
-    for (int i = 0; i < medications.size(); i++) {
-        Medication med = medications.get(i);
-        if (med.getName().equals(name)) {
-            System.out.println("Medication Name: " + med.getName());
-            System.out.println("Quantity: " + med.getQuantity()); 
-            return;
-        }
+    Medication medication = findMedicationByName(name);
+    if (medication != null) {
+        System.out.println(medication.toString());
+    } else {
+        System.out.println("Medication not found.");
     }
-    System.out.println("Not found");
 }
 
 // •	Add a patient to a doctor's list.
@@ -171,7 +187,7 @@ public void generateReport() {
     System.out.println("\n *** Medications *** ");
     for (int i = 0; i < medications.size(); i++) {
         Medication med = medications.get(i);
-        System.out.println("Name: " + med.getName() + ", Quantity: " + med.getQuantity());
+        System.out.println("Name: " + med.getName() + ", Quantity: " + med.getQuantityInStock());
     }
 
     System.out.println("\n*** Patients ***");
@@ -234,8 +250,8 @@ public void printPrescriptionsByDoctor(String doctorName) {
 public void restockMedications(int amount) {
     for (int i = 0; i < medications.size(); i++) {
         Medication med = medications.get(i);
-        int OlQty = med.getQuantity();
-        med.setQuantity(OlQty + amount);
+       int OlQty = med.getQuantityInStock();
+        med.setQuantityInStock(OlQty + amount);
     }
 
     System.out.println("All medications restocked by " + amount);

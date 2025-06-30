@@ -26,7 +26,7 @@ public class Prescription {
     }
 
     public Doctor getDoctor() {
-        return doctor;
+        return doctor; 
     }
 
     public Patient getPatient() {
