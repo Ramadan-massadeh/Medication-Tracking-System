@@ -62,7 +62,7 @@ This is a small project for tracking medications in a pharmacy. The system allow
 
 ## Link for video documentation/presentation
 
-https://drive.google.com/file/d/1RJpWieqFi0KKh8IBi1h0UNQy5UT3eLlj/view?usp=sharing
+https://youtu.be/XrANsH2ZD1w
 
 ## Date
 
